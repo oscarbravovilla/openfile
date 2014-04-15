@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin 
+	id="com.vodafone.openfile"
+	version="0.0.1" 
+	xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	 <name>OpenPdf</name>
+	 <DESCRIPTION>Sirve para abrir un pdf</DESCRIPTION>
+	 
+	 <js-module name="OpenFile" src="www/openfile.js">
+		<clobbers target="openfile" />
+	 </js-module>
+	 
+	 <platform name="android">
+	 
+			<config-file target="res/xml/config.xml" parent="/*">
+				<feature name="OpenFile">
+					<param name="android-package" value="com.vodafone.openfile.OpenFile"/>
+				</feature>
+			</config-file>
+			
+			<config-file target="AndroidManifest.xml" parent="/*">
+				<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+			</config-file>
+			
+			<source-file src="src/android/OpenFile.java" target-dir="src/com/vodafone/openfile" /> 
+	 </platform>
+ </plugin>
